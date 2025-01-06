@@ -22,7 +22,7 @@ def part_one(grid,trailheads,rows,cols):
                 #     print((nr,nc) , "already visited")
                 #     continue
                 # seen.add((nr,nc))  commented for part 2
-                print(seen)    
+                   
                 if grid[nr][nc] == 9:
                     score += 1
                     
