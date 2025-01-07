@@ -57,11 +57,62 @@
                 
 #     return count,input_arr
 
-def part_one(input_arr):
-    row = len(input_arr)
-    col = len(input_arr[0])
+def is_loop(input_arr,row,col):
+    nr  = -1
+    nc = 0
+    rows = len(input_arr)
+    cols = len(input_arr[0])
+    seen  = set()
+    while True:
+        seen.add((row,col,nr,nc))
+        if row + nr < 0 or row  + nr >= rows or col + nc < 0 or col+ nc >= cols: return False
+        if input_arr[row + nr][col + nc] == "#":
+            nc,nr = -nr,nc
+        else:
+            row += nr
+            col += nc
+        if (row,col,nr,nc) in seen:
+            return True
+        
+
+def part_two(input_arr,r,c):
+    rows = len(input_arr)
+    cols = len(input_arr[0])
     count = 0
-    turns = [(0,-1),(1,0),(0,1),(-1,0)]
+    for cr in range(rows):
+        for cc in range(cols):
+            if input_arr[cr][cc] != ".":continue
+            input_arr[cr][cc] = "#"
+            if(is_loop(input_arr,r,c)):
+                count += 1
+            input_arr[cr][cc] = "."
+    return count
+                
+            
+
+
+def part_one(input_arr,r,c):
+    row = len(input_arr)
+    cols = len(input_arr[0])
+
+    nr = -1
+    nc = 0
+
+    seen = {(r,c)}
+    while True:
+        if r + nr < 0 or r  + nr >= row or c + nc < 0 or c + nc >= cols: break
+        if input_arr[r + nr][c + nc] == "#":
+            nc,nr = -nr,nc
+        else:
+            r += nr
+            c += nc
+        
+        seen.add((r,c))
+    return len(seen)
+        
+          
+
+    
 
 
     
@@ -72,20 +123,20 @@ def part_one(input_arr):
 def main(): 
     input_arr = []
     count = 0
-    with open("/Users/ganesh.ingale/adventofcode/Day6/example.txt", "r", encoding="utf-8") as f:
-        row = 0
-        initial_row = 0
-        for line in f:
-            arr = []
-            row = row + 1
-            for c in line:
-                if c == '\n':
-                    break
-                if (c == '>' or c == '<' or c == '^' or c == 'V'):
-                    initial_row = row - 1
-                arr.append(c)
+    grid  = [[c for c in line.strip()] for line in open("/Users/ganesh.ingale/adventofcode/Day6/input.txt", "r", encoding="utf-8")]
 
-            input_arr.append(arr)
+    rows = len(grid)
+    cols = len(grid[0])
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == "^":
+                break
+        else:
+            continue
+        break
+    
+    print(part_two(grid,r,c))
+
 
         
     #count,input_arr = calculate_steps(input_arr,initial_row)
