@@ -110,16 +110,7 @@ def part_one(input_arr,r,c):
         seen.add((r,c))
     return len(seen)
         
-          
-
-    
-
-
-    
-
-
-
-
+        
 def main(): 
     input_arr = []
     count = 0
