@@ -55,6 +55,28 @@ def part_one(input_data,input_spaces):
 
     print(sum)
 
+def part_two():
+    
+    data = {}
+    spaces = []
+
+    pos = 0
+    id  = 0
+    with open("/Users/ganesh.ingale/adventofcode/Day9/example.txt", "r", encoding="utf-8") as f:
+        for line in f:
+            for i,c in enumerate(line):
+                j = int(c)
+                if i % 2 == 0:
+                    data[id] = (pos,j)
+                    id += 1
+                else:
+                    if j != 0:
+                        spaces.append((pos,j))
+                pos += j
+                
+    
+
+
 def main():
     input_data = []
     input_space = []
@@ -68,7 +90,8 @@ def main():
                     input_data.append(c)
                 else:
                     input_space.append(c)    
-    part_one(input_data,input_space)
+    # part_one(input_data,input_space)
+    part_two()
 
 
 if __name__ == "__main__":
