@@ -21,7 +21,7 @@ def part_one(grid,trailheads,rows,cols):
                 # if (nr,nc) in seen:
                 #     print((nr,nc) , "already visited")
                 #     continue
-                # seen.add((nr,nc))  commented for part 2
+                #seen.add((nr,nc)) # commented for part 2
                    
                 if grid[nr][nc] == 9:
                     score += 1
@@ -30,10 +30,6 @@ def part_one(grid,trailheads,rows,cols):
                     dq.append((nr,nc))
                     
     return score
-
-
-
-
 
 
 def main():
