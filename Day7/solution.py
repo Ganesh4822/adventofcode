@@ -18,9 +18,7 @@ def check2(target,digits):
         if result == target:
             return target
     return 0
-        
-
-
+    
 
 def check(target,digits):
     #combinations = 2 ** (len(digits) - 1)

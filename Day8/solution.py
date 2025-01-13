@@ -10,7 +10,7 @@ def part_one(input_dict,limit):
     antinodes_cnt = set()
 
     for key,value in input_dict.items():
-        # print(value)
+        print(value)
         line_combos = list(itertools.combinations(value,2))
         for ops in line_combos:
             node1 = ops[0]
@@ -36,6 +36,7 @@ def part_two(input_dict,limit):
     for key,value in input_dict.items():
         # print(value)
         line_combos = list(itertools.combinations(value,2))
+        # print(line_combos)
         for ops in line_combos:
             node1 = ops[0]
             node2 = ops[1]
@@ -72,7 +73,7 @@ def main():
     input_dict = {}
     row = 0 
     col = 0
-    with open("/Users/ganesh.ingale/adventofcode/Day8/input.txt", "r", encoding="utf-8") as f:
+    with open("/Users/ganesh.ingale/adventofcode/Day8/example.txt", "r", encoding="utf-8") as f:
         for idx,line in enumerate(f):
             row  = len(line)
             for jdx,c in enumerate(line):
