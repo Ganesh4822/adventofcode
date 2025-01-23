@@ -9,7 +9,6 @@ from collections import defaultdict
 # If we encounter "." we will move the boxes and the robot.
 
 
-
 #part 2
 #we will need to go through the all the coordinates which contains "[" and "]"
 ###########
@@ -28,8 +27,6 @@ from collections import defaultdict
 #We will copy the values of coordinates present in moves as these values will be updated 
 
  
-
-
 def part_one(grid,moves,ri,ci):
     rows = len(grid)
     cols = len(grid[0])
@@ -104,7 +101,6 @@ def part_two(grid,moves,ri,ci):
         copy_val = defaultdict()
         for mr,mc in moves:
             copy_val[(mr,mc)] = grid[mr][mc]
-
             
         grid[ri][ci] = "."
         #original = grid[ri + steps[0]][ci +steps[1]] #(5,8) 
@@ -121,8 +117,6 @@ def part_two(grid,moves,ri,ci):
         for nr,nc in moves[1 :]:
             grid[nr+steps[0]][nc + steps[1]] = copy_val[(nr,nc)]
 
-            
-        
         # print("after move",move)
         # print("after moves",moves)
         # print("\n".join(" ".join(map(str, row)) for row in grid))
@@ -157,10 +151,7 @@ def main():
             break
     
     # print(part_one(grid,moves,r,c))
-    print(part_two(grid,moves,r,c))
-
-
-    
+    print(part_two(grid,moves,r,c))        
     
 if __name__ == "__main__":
     main()

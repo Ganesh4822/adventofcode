@@ -15,8 +15,6 @@ def findsimilarityScore(list1,list2):
     return score 
         
 
-
-
 def findTotalDistance(list1,list2):
     sum = 0
     n1 = len(list1)
