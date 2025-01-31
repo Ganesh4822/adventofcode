@@ -16,7 +16,7 @@ import heapq
 #https://www.youtube.com/watch?v=EFg3u_E6eHU (djiktras explanation)
 
 def part_one(grid,rows,cols,rs,cs):
-    pq = [(0,rs,cs,0,1)] #(cost, row , col , next_r , next_col)
+    pq = [(0,rs,cs,0,1)] #(cost, row , col , dir_r , dir_col)
 
     seen = {(rs,cs,0,1)}
     while pq:
@@ -30,7 +30,8 @@ def part_one(grid,rows,cols,rs,cs):
             heapq.heappush(pq,(new_cost,nr,nc,dr,dc))
 
 def part_two(grid,rs,cs):
-    pq = [{0,rs,cs,0,1}]
+    pass
+    
 
 def main():
     path = "/Users/ganesh.ingale/adventofcode/Day16/example.txt"
