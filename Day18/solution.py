@@ -21,7 +21,7 @@ def can_reach(grid,corrupt_coord,simulations,grid_size):
         for nr,nc in [(r + 1,c), (r-1,c),(r ,c + 1), (r, c - 1)]:
             if nr < 0  or nc < 0 or nr > (grid_size - 1) or nc  > (grid_size - 1): continue
             if grid[nr][nc] == "#":continue
-            if (nr,nc) in seen: continue
+            if (nr,nc) in seen:continue
             if nr ==  nc == (grid_size - 1):
                 return count + 1
             seen.add((nr,nc))

@@ -6,7 +6,6 @@ patterns = set(patterns.replace(", ", ",").strip().split(","))
 max_pat_len = max(map(len,patterns))
 designs = designs.split("\n")
 
-
 cacheI = {}
 def is_possible(design):
     if design ==  "": return True
